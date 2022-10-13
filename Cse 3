@@ -1,0 +1,18 @@
+import numpy as np
+import pandas as pd
+X_actual = [1, 1, 0, 1, 0, 0, 1, 0, 0, 0]
+Y_predic = [1, 0, 1, 1, 1, 0, 1, 1, 0, 0]
+TN = 3
+TP = 3
+FP = 3
+FN = 1
+accuracy = (TP+TN)/(TP+TN+FP+FN)
+precision = (TP)/(TP+FP)
+recall = TP/(TP+FN)
+specificity = TN/(TN+FP)
+x = 2*(recall*precision)/(recall+precision)  # x represent F1 score
+print(accuracy)
+print(precision)
+print(recall)
+print(specificity)
+print(x)
