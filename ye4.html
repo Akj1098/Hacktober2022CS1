@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DETAILS</title>
+  </head>
+  <body>
+    <button onclick="displayall()">Show result of all Students</button>
+    <button onclick="displayrollnowise()">
+      Enter the roll no. to display the result
+    </button>
+    <br />
+    <form class="" action="index.html" method="post">
+      <br />
+      <label for="name">Enter the Name of the Student: </label>
+      <input type="text" name="name" id="name1" /><br /><br />
+      <label for="marks1">Enter the marks of Student in subject 1: </label>
+      <input type="text" name="marks1" id="m1" /><br /><br />
+      <label for="marks2">Enter the marks of Student in subject 2: </label>
+      <input type="text" name="marks2" id="m2" /><br /><br />
+      <label for="marks3">Enter the marks of Student in subject 3: </label>
+      <input type="text" name="marks3" id="m3" /><br /><br />
+      <button type="button" name="button" id="btn" onclick="EnrollStudent()">
+        Enroll Student
+      </button>
+    </form>
+
+    <script>
+                              class Student{
+                                  static rno=0
+                                  constructor(name,mark1,mark2,mark3){
+                                      this.rno=++Student.rno
+                                      this.name=name
+                                      this.mark1=mark1
+                                      this.mark2=mark2
+                                      this.mark3=mark3
+                                  }
+                                  display(){
+                                      console.log("Roll no : "+this.rno)
+                                      console.log("Name: "+this.name)
+                                      console.log("Marks in subject 1: "+this.mark1)
+                                      console.log("Marks in subject 2: "+this.mark2)
+                                      console.log("Marks in subject 3: "+this.mark3)
+
+                                  }
+                                  result(){
+                                      let per=((this.mark1+this.mark2+this.mark3)/3)
+                                      console.log("Percentage is: "+per)
+                                      if(per>33){
+                                          console.log("Result is: pass with "+per+" %")
+                                      }
+                                      else{
+                                          console.log("Result is: fail with "+per+" %")
+                                      }
+                                  }
+                              }
+
+                                  let obj_arr=[]
+                                  function displayall(){
+                                  for(let obj of obj_arr)
+                              {
+                                  obj.display()
+                                  obj.result()
+                              }
+                          }
+                          function displayrollnowise(){
+                            let rno = prompt("Enter the rollno. of the student you want the result of: ");
+                            console.log(obj_arr[rno-1])
+                        }
+                       function EnrollStudent(){
+                            let name_student=document.getElementById('name1').value
+                            let mrk1_student=document.getElementById('m1').value
+                            let mrk2_student=document.getElementById('m2').value
+                            let mrk3_student=document.getElementById('m3').value
+                            let x=new Student(name_student,mrk1_student,mrk2_student,mrk3_student)
+                            obj_arr.push(x)
+
+                        }
+                        const btn = document.getElementById('btn');
+
+      btn.addEventListener('click', function handleClick(event) {
+
+      event.preventDefault();
+
+      const name_s1 = document.getElementById('name1').value;
+      const marks1 = document.getElementById('m1').value;
+      const marks2 = document.getElementById('m2').value;
+      const marks3 = document.getElementById('m3').value;
+
+
+    //   name1.value = '';
+    //   m1.value = '';
+    //   m2.value = '';
+    //   m3.value = '';
+      }
+      )
+    </script>
+  </body>
+</html>
